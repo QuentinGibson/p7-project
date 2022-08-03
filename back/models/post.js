@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   Post.associate = (models) => {
     Post.belongsTo(models.User, {
       foreignKey: "creatorId",
+      onDelete: "CASCADE",
     });
     Post.belongsToMany(models.User, {
       through: "User_Post_Visit",
